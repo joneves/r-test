@@ -1,7 +1,7 @@
 {
-  "name": "interview",
+  "name": "Code test",
   "version": "1.0.0",
-  "description": "Code test fo interview",
+  "description": "Code test",
   "main": "lib/Main.js",
   "dependencies": {
     "underscore": "^1.8.3"
@@ -11,6 +11,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.22.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "node-uuid": "^1.4.7"
@@ -20,8 +21,9 @@
     "run": "node lib/main",
     "build": "babel -d lib/ src/",
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
-    "test": "npm run compile && mocha specs/*.js --debug-brk --compilers js:babel-core/register",
-    "test-watch": "npm run compile && mocha specs/*.js -w --compilers js:babel-core/register"
+    "test": "npm run compile && mocha specs/*.js --compilers js:babel-core/register",
+    "test-watch": "npm run compile && mocha specs/*.js -w --compilers js:babel-core/register",
+    "postinstall" "npm run compile" 
   },
   "author": "",
   "license": "ISC"
