@@ -142,6 +142,6 @@ export default class Rover {
             }
         });
 
-        return [this._currentX, this._currentY, this._currentDirection];
+        return {positionX: this._currentX, positionY: this._currentY, direction: this._currentDirection};
     }
 }
