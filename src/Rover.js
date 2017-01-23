@@ -50,6 +50,18 @@ export default class Rover {
         this._grid = grid;
     }   
 
+    get id() {
+        return this._id;
+    }
+
+    get position() {
+        return [this._currentX, this._currentY];
+    }
+
+    get direction() {
+        return this._currentDirection;
+    }
+
     left() {
         this._currentDirection = this._currentDirection === 0 ? 270 : this._currentDirection - 90;
     }
@@ -58,7 +70,6 @@ export default class Rover {
         this._currentDirection = this._currentDirection === 270 ? 0 : this._currentDirection + 90;
     }   
 
-    // Forward?
     up() {
         let nextPosition;
 
@@ -77,12 +88,9 @@ export default class Rover {
                 break;
         }
 
-        if(this._grid.ensurePositionEmpty(this.id, nextPosition)) {
-            [this._currentX, this._currentY] = [...nextPosition];
-        }
+        this.attemptMove(nextPosition);
     }
 
-    // Back?
     down() {
         let nextPosition;
 
@@ -101,21 +109,13 @@ export default class Rover {
                 break;
         }
 
+        this.attemptMove(nextPosition);
+    }
+
+    attemptMove(nextPosition) {
         if(this._grid.ensurePositionEmpty(this.id, nextPosition)) {
             [this._currentX, this._currentY] = [...nextPosition];
         }
-    }
-
-    get id() {
-        return this._id;
-    }
-
-    get position() {
-        return [this._currentX, this._currentY];
-    }
-
-    get direction() {
-        return this._currentDirection;
     }
 
     go(sequence) {

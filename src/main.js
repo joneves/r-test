@@ -5,13 +5,13 @@ const outputTmpl = (name, output) => `${name} - Location: [${output.positionX}, 
 
 var createRover = function(position, direction, grid) {
     try {
-        let rover = new Rover({position: [1, 3], direction: 0, grid: grid});
+        let rover = new Rover({position, direction, grid});
         grid.addRover(rover);
 
         return rover;
     }
     catch(e) {
-        console.log('Unable to create rover.');
+        console.log('Failed initialising rover.');
         console.log(e.message);
     }
 };
@@ -53,34 +53,3 @@ let rover3 = createRover([9, 9], -90, grid);
 if(rover3) {
     launchRover(rover3, 'DDDDRDRDDRUUUUUUUU');
 }
-
-
-            
-/*let [positionX, positionY, direction] = 
-
-// TODO: Smarten this up
-
-console.log(`Position X: ${positionX}`);
-console.log(`Position Y: ${positionY}`);
-console.log(`Direction: ${direction}`);
-
-let rover2 = new Rover({position: [2, 2], direction: 90, grid: grid});
-grid.addRover(rover2);
-
-[positionX, positionY, direction] = rover2.go('UULLLDDDD');
-
-console.log(`Position X: ${positionX}`);
-console.log(`Position Y: ${positionY}`);
-console.log(`Direction: ${direction}`);
-
-let rover3 = new Rover({position: [5, 9], direction: 270, grid: grid});
-grid.addRover(rover3);
-
-[positionX, positionY, direction] = rover3.go('DDDDRDRDDRUUUUUUUU');
-
-console.log(`Position X: ${positionX}`);
-console.log(`Position Y: ${positionY}`);
-console.log(`Direction: ${direction}`);*/
-
-
-//console.log(a.getValue())     
