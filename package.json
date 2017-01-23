@@ -1,5 +1,5 @@
 {
-  "name": "Code test",
+  "name": "interview",
   "version": "1.0.0",
   "description": "Code test",
   "main": "lib/Main.js",
@@ -23,7 +23,7 @@
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
     "test": "npm run compile && mocha specs/*.js --compilers js:babel-core/register",
     "test-watch": "npm run compile && mocha specs/*.js -w --compilers js:babel-core/register",
-    "postinstall" "npm run compile" 
+    "postinstall": "npm run compile" 
   },
   "author": "",
   "license": "ISC"
