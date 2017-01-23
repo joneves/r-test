@@ -42,13 +42,13 @@ if(rover1) {
     launchRover(rover1, 'UUULUUUUUU');
 }
 
-let rover2 = createRover({position: [2, 2], direction: 90, grid});
+let rover2 = createRover([2, 2], 90, grid);
 
 if(rover2) {
     launchRover(rover2, 'UULLLDDDD');
 }
 
-let rover3 = createRover({position: [5, 9], direction: -90, grid});
+let rover3 = createRover([9, 9], -90, grid);
 
 if(rover3) {
     launchRover(rover3, 'DDDDRDRDDRUUUUUUUU');

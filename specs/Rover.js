@@ -50,36 +50,33 @@ describe('Rover', function() {
 
         describe('And given a valid sequence', function() {
             it('Should move forward when given the direction \'U\'', function() {
-                rover.go('U');
-                expect(rover.position).to.eql([2, 4]);
+                let output = rover.go('U');
+                expect(output).to.eql({positionX: 2, positionY: 4, direction: 0});
             });
 
             it('Should move backward when given the direction \'D\'', function() {
-                rover.go('D');
-                expect(rover.position).to.eql([2, 3]);
+                let output = rover.go('D');
+                expect(output).to.eql({positionX: 2, positionY: 3, direction: 0});
             });
 
             it('Should rotate right when given the direction \'R\'', function() {
-                rover.go('R');
-                expect(rover.position).to.eql([2, 3]);
-                expect(rover.direction).to.equal(90);
+                let output = rover.go('R');
+                expect(output).to.eql({positionX: 2, positionY: 3, direction: 90});
             });
 
             it('Should rotate left when given the direction \'L\'', function() {
-                rover.go('L');
-                expect(rover.position).to.eql([2, 3]);
-                expect(rover.direction).to.equal(0);
+                let output = rover.go('L');
+                expect(output).to.eql({positionX: 2, positionY: 3, direction: 0});
             });
 
             it('Should move in the direction it is facing after turning', function() {
-                rover.go('RRU');
-                expect(rover.position).to.eql([2, 2]);
-                expect(rover.direction).to.equal(180);
+                let output = rover.go('RRU');
+                expect(output).to.eql({positionX: 2, positionY: 2, direction: 180});
             });
 
             it('Should not move off the grid', function() {
-                rover.go('UUUUUUUU');
-                expect(rover.position).to.eql([2, 0]);
+                let output = rover.go('UUUUUUUU');
+                expect(output).to.eql({positionX: 2, positionY: 0, direction: 180});
 
             });
 
@@ -92,9 +89,8 @@ describe('Rover', function() {
             it('Should not move into a space occupied by another rover', function() {
                 let rover2 = new Rover({position: [1, 0], direction: 90, grid});
                 grid.addRover(rover2);
-                rover2.go('U');
-
-                expect(rover2.position).to.eql([1, 0]);        
+                let output = rover2.go('U');
+                expect(output).to.eql({positionX: 1, positionY: 0, direction: 90});       
             });
         });
     });
